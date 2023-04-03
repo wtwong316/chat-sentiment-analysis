@@ -6,5 +6,7 @@ project_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__
 
 templates_dir = os.path.join(project_dir, 'chat_sentiment_analysis', 'templates')
 
+data_dir = os.path.join(project_dir, 'data')
+
 if __name__ == '__main__':
     print(project_dir)

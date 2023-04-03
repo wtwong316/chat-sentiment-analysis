@@ -1,11 +1,17 @@
+import json
 import os
 import sys
 from typing import List
 
+import datasets
 import fire
 import torch
 import transformers
 from datasets import load_dataset
+from datasets import Dataset
+from datasets import DatasetDict
+
+from chat_sentiment_analysis.common import common_path
 
 """
 Unused imports:
@@ -22,7 +28,7 @@ from peft import (
 )
 from transformers import LlamaForCausalLM, LlamaTokenizer
 
-from chat_sentiment_analysis.llama.utils.prompter import Prompter
+from chat_sentiment_analysis.utils.prompter import Prompter
 
 
 def tokenize(prompt, tokenizer, cutoff_len, add_eos_token=True):
@@ -75,12 +81,12 @@ def generate_and_tokenize_prompt_wrapper(prompter, train_on_inputs, tokenizer, c
 def train(
     # model/data params
     base_model: str = "decapoda-research/llama-7b-hf",  # the only required argument
-    data_path: str = "yahma/alpaca-cleaned",
-    output_dir: str = "./lora-alpaca-v2",
+    data_path: str = os.path.join(common_path.data_dir, 'task_data', 'task_data.json'),
+    output_dir: str = "./chat-sentiment-analysis",
     # training hyperparams
     batch_size: int = 128,
     micro_batch_size: int = 8,
-    num_epochs: int = 3,
+    num_epochs: int = 1,
     learning_rate: float = 3e-4,
     cutoff_len: int = 512,
     val_set_size: int = 2000,
@@ -102,10 +108,7 @@ def train(
     )
     tokenizer.padding_side = "left"  # Allow batched inference
 
-    if data_path.endswith(".json") or data_path.endswith(".jsonl"):
-        data = load_dataset("json", data_files=data_path)
-    else:
-        data = load_dataset(data_path)
+    data = DatasetDict.from_json({'train': data_path})
 
     prompter = Prompter(prompt_template_name)
 
@@ -122,7 +125,8 @@ def train(
                                                                                  cutoff_len))
         )
     else:
-        train_data = data["train"].shuffle().map(generate_and_tokenize_prompt_wrapper(prompter, train_on_inputs, tokenizer, cutoff_len))
+        train_data = data["train"].shuffle().map(generate_and_tokenize_prompt_wrapper(prompter, train_on_inputs, tokenizer,
+                                                                                      cutoff_len))
         val_data = None
 
     device_map = "auto"
