@@ -10,3 +10,6 @@ Solve all sentiment analysis tasks by chat
   - sh run.sh chat_sentiment_analysis/llama/inference_alpaca_lora.py
 - [inference_gradio](chat_sentiment_analysis/llama/inference_gradio.py)
     - sh run.sh chat_sentiment_analysis/llama/inference_gradio.py
+
+## Reference
+- [my-alpaca](https://github.com/l294265421/my-alpaca)
