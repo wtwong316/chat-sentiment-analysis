@@ -89,7 +89,7 @@ def train(
     num_epochs: int = 1,
     learning_rate: float = 3e-4,
     cutoff_len: int = 512,
-    val_set_size: int = 2000,
+    val_set_size: int = 500,
     # lora hyperparams
     lora_r: int = 16,
     lora_alpha: int = 16,

@@ -81,12 +81,15 @@ if __name__ == '__main__':
                 responses.append(';'.join(triplets))
             else:
                 responses.append('there are no aspect term, sentiment, opinion term triplets in the sentence.')
-    task_data = {
-        'instruction': instructions,
-        'input': sentences,
-        'output': responses
-    }
+    output_lines = []
+    for i , instruction in enumerate(instructions):
+        instance = {
+            'instruction': instruction,
+            'input': sentences[i],
+            'output': responses[i]
+        }
+        output_lines.append(json.dumps(instance))
 
     output_dir = os.path.join(common_path.data_dir, 'task_data')
     output_filepath = os.path.join(output_dir, 'task_data.json')
-    file_utils.write_lines([json.dumps(task_data)], output_filepath)
+    file_utils.write_lines(output_lines, output_filepath)
