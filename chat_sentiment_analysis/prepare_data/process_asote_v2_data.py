@@ -22,7 +22,6 @@ if __name__ == '__main__':
             line_obj = json.loads(line)
             sentence_and_aspects[line_obj['sentence']].append(line_obj)
 
-        sentence_num = 0
         for sentence, aspects in sentence_and_aspects.items():
             # aspect term extraction
             instruction = 'extract aspect terms from the sentence'
@@ -35,9 +34,28 @@ if __name__ == '__main__':
                 aspect_term = aspect['aspect_term']['term']
                 aspect_terms.append(aspect_term)
             if len(aspect_terms) > 0:
-                responses.append(','.join(aspect_terms))
+                responses.append(', '.join(aspect_terms))
             else:
                 responses.append('there are no aspect terms in the sentence.')
+
+            # aspect opinion term extraction
+            instruction = 'extract opinion term from the sentence'
+            instructions.append(instruction)
+            sentences.append(sentence)
+            opinion_terms = set()
+            for aspect in aspects:
+                if 'opinions' not in aspect:
+                    continue
+                opinions = aspect['opinions']
+                for opinion in opinions:
+                    if 'opinion_term' not in opinion:
+                        continue
+                    opinion_term = opinion['opinion_term']['term']
+                    opinion_terms.add(opinion_term)
+            if len(opinion_terms) > 0:
+                responses.append(', '.join(list(opinion_terms)))
+            else:
+                responses.append('there are no opinion terms in the sentence.')
 
             # aspect term-opinion term pair extraction
             instruction = 'extract aspect term-opinion term pairs from the sentence'
@@ -56,7 +74,7 @@ if __name__ == '__main__':
                     pair = '(%s, %s)' % (aspect_term, opinion_term)
                     pairs.append(pair)
             if len(pairs) > 0:
-                responses.append(';'.join(pairs))
+                responses.append('; '.join(pairs))
             else:
                 responses.append('there are no aspect term-opinion term pairs in the sentence.')
 
@@ -77,11 +95,11 @@ if __name__ == '__main__':
                     triplet = '(%s, %s, %s)' % (aspect_term, opinion['polarity'], opinion_term)
                     triplets.append(triplet)
             if len(triplets) > 0:
-                responses.append(';'.join(triplets))
+                responses.append('; '.join(triplets))
             else:
                 responses.append('there are no aspect term, sentiment, opinion term triplets in the sentence.')
     output_lines = []
-    for i , instruction in enumerate(instructions):
+    for i, instruction in enumerate(instructions):
         instance = {
             'instruction': instruction,
             'input': sentences[i],
@@ -90,5 +108,5 @@ if __name__ == '__main__':
         output_lines.append(json.dumps(instance))
 
     output_dir = os.path.join(common_path.data_dir, 'task_data')
-    output_filepath = os.path.join(output_dir, 'task_data.json')
+    output_filepath = os.path.join(output_dir, 'asote.json')
     file_utils.write_lines(output_lines, output_filepath)
