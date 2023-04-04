@@ -24,7 +24,10 @@ Instruction: extract aspect term-opinion term pairs from the sentence
 Instruction: extract aspect term, sentiment, opinion term triplets from the sentence
 ![](./figures/tasks/ASOTE.png)
 
-## Try Chat-Sentiment Yourself
+### Try Chat-Sentiment Yourself
+
+### Tips
+- LLaMA-7b, GPU 10G
 
 ## Reference
 - [my-alpaca](https://github.com/l294265421/my-alpaca)
