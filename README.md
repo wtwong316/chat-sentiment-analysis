@@ -31,3 +31,5 @@ Instruction: extract aspect term, sentiment, opinion term triplets from the sent
 
 ## Reference
 - [my-alpaca](https://github.com/l294265421/my-alpaca)
+- [stanford_alpaca](https://github.com/tatsu-lab/stanford_alpaca#fine-tuning)
+- [alpaca-lora](https://github.com/tloen/alpaca-lora)
