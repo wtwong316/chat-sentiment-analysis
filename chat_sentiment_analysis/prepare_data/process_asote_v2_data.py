@@ -60,7 +60,6 @@ if __name__ == '__main__':
             else:
                 responses.append('there are no aspect term-opinion term pairs in the sentence.')
 
-
             # aspect term, sentiment, opinion term triplet extraction
             instruction = 'extract aspect term, sentiment, opinion term triplets from the sentence'
             instructions.append(instruction)

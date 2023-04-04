@@ -9,7 +9,22 @@ Solve all sentiment analysis tasks by chat
 - [inference_alpaca_lora](chat_sentiment_analysis/llama/inference_alpaca_lora.py)
   - sh run.sh chat_sentiment_analysis/llama/inference_alpaca_lora.py
 - [inference_gradio](chat_sentiment_analysis/llama/inference_gradio.py)
-    - sh run.sh chat_sentiment_analysis/llama/inference_gradio.py
+    - nohup sh run.sh chat_sentiment_analysis/llama/inference_gradio.py > inference_gradio.log 2>&1 &
+
+## Supported Tasks
+### Aspect Term Extraction
+Instruction: extract aspect terms from the sentence
+![](./figures/tasks/ATE.png)
+
+### Aspect Term-Opinion Term Pair Extraction
+Instruction: extract aspect term-opinion term pairs from the sentence
+![](./figures/tasks/AOP.png)
+
+### Aspect Term, Sentiment, Opinion Term Triplet Extraction
+Instruction: extract aspect term, sentiment, opinion term triplets from the sentence
+![](./figures/tasks/ASOTE.png)
+
+## Try Chat-Sentiment Yourself
 
 ## Reference
 - [my-alpaca](https://github.com/l294265421/my-alpaca)
