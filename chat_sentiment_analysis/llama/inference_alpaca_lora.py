@@ -94,6 +94,8 @@ def main(
         prompt = prompter.generate_prompt(instruction, input)
         inputs = tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to(device)
+        # https://huggingface.co/blog/how-to-generate
+        # https://huggingface.co/docs/transformers/generation_strategies
         generation_config = GenerationConfig(
             temperature=temperature,
             top_p=top_p,

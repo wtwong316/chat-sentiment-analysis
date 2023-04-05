@@ -74,7 +74,7 @@ def main(
         max_new_tokens=512,
         **kwargs,
     ):
-        prompt = prompter.generate_prompt(instruction, input)
+        prompt = instruction
         inputs = tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to(device)
         generation_config = GenerationConfig(
@@ -101,9 +101,7 @@ def main(
         instruction = input("Instruction: ")
         if instruction == 'quit':
             break
-
-        text = input("Input: ")
-        result = evaluate(instruction, input=text)
+        result = evaluate(instruction)
         print('response:')
         print(result)
 
