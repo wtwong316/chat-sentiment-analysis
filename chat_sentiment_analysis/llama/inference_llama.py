@@ -94,13 +94,14 @@ def main(
             )
         s = generation_output.sequences[0]
         output = tokenizer.decode(s)
-        return prompter.get_response(output)
+        return output
 
     while True:
         print()
         instruction = input("Instruction: ")
         if instruction == 'quit':
             break
+
         result = evaluate(instruction)
         print('response:')
         print(result)
