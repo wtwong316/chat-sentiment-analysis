@@ -96,6 +96,7 @@ def main(
         input_ids = inputs["input_ids"].to(device)
         # https://huggingface.co/blog/how-to-generate
         # https://huggingface.co/docs/transformers/generation_strategies
+        # https://medium.com/mlearning-ai/softmax-temperature-5492e4007f71
         generation_config = GenerationConfig(
             temperature=temperature,
             top_p=top_p,
