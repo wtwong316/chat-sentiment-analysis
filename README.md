@@ -54,6 +54,14 @@ Instruction: detect aspect categories from the sentence
 Instruction: detect aspect category-sentiment pairs from the sentence
 ![](./figures/tasks/ACSA.png)
 
+### Aspect-Category-Opinion-Sentiment (ACOS) Quadruple Extraction
+Instruction: extract Aspect-Category-Opinion-Sentiment Quadruple from the sentence
+![](./figures/tasks/ACOS.png)
+
+### Holder, Target, Opinion, Sentiment (HTOS) Quadruple Extraction
+Instruction: extract holder-target-Opinion-Sentiment Quadruple from the sentence
+![](./figures/tasks/HTOS.png)
+
 ### Try Chat-Sentiment Yourself
 
 ### Tips

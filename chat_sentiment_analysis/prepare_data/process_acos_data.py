@@ -19,7 +19,7 @@ def extract_segment_from_sentence(start, end, sentence):
     if start == -1:
         return result
     else:
-        result = sentence.split()[start: end]
+        result = ' '.join(sentence.split()[start: end])
     return result
 
 
