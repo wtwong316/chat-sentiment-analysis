@@ -77,7 +77,7 @@ if __name__ == '__main__':
             parsed_line = parse_line(line)
             # (h, t, e, p)
             #  h is a holder who expresses a polarity p towards a target t through a sentiment expression
-            instructions.append('extract holder-target-Opinion-Sentiment Quadruple from the sentence')
+            instructions.append('extract Holder-Target-Opinion-Sentiment Quadruple from the sentence')
             sentences.append(parsed_line['sentence'])
             responses.append(parsed_line['response'])
 
