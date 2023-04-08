@@ -14,10 +14,6 @@ import sys
 from collections import defaultdict
 from typing import List
 
-from bs4 import BeautifulSoup
-from bs4.element import Tag
-from sklearn.model_selection import train_test_split
-
 from chat_sentiment_analysis.common import common_path
 from chat_sentiment_analysis.utils import file_utils
 

@@ -1,6 +1,11 @@
 # chat-sentiment-analysis
 Solve all sentiment analysis tasks by chat
 
+## Prepare Finetuning Data
+- chat_sentiment_analysis/prepare_data/process_asote_data.py
+- chat_sentiment_analysis/prepare_data/process_acsa_data.py
+- chat_sentiment_analysis/prepare_data/process_acos_data.py
+
 ## Step by Step
 - [filetune](chat_sentiment_analysis/llama/finetune.py)
   - nohup sh run.sh chat_sentiment_analysis/llama/finetune.py > autodl.log 2>&1 &
