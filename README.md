@@ -36,6 +36,7 @@ Instruction: extract aspect terms from the sentence
 
 ### Opinion Term Extraction
 Instruction: extract opinion terms from the sentence
+
 ![](./figures/tasks/OTE.png)
 
 ### Aspect Term-Opinion Term Pair Extraction
@@ -59,7 +60,7 @@ Instruction: extract Aspect-Category-Opinion-Sentiment Quadruple from the senten
 ![](./figures/tasks/ACOS.png)
 
 ### Holder, Target, Opinion, Sentiment (HTOS) Quadruple Extraction
-Instruction: extract holder-target-Opinion-Sentiment Quadruple from the sentence
+Instruction: extract Holder-Target-Opinion-Sentiment Quadruple from the sentence
 ![](./figures/tasks/HTOS.png)
 
 ### Try Chat-Sentiment Yourself
