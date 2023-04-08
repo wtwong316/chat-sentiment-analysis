@@ -3,8 +3,21 @@ Solve all sentiment analysis tasks by chat
 
 ## Prepare Finetuning Data
 - chat_sentiment_analysis/prepare_data/process_asote_data.py
+  - supported tasks
+    - Aspect Term Extraction (ATE)
+    - Opinion Term Extraction (OTE)
+    - Aspect Term-Opinion Term Pair Extraction (AOPE)
+    - Aspect term, Sentiment, Opinion term Triplet Extraction (ASOTE)
 - chat_sentiment_analysis/prepare_data/process_acsa_data.py
+  - supported tasks
+    - Aspect Category Detection (ACD)
+    - Aspect Category-Sentiment Pair Extraction (ACSA)
 - chat_sentiment_analysis/prepare_data/process_acos_data.py
+  - supported tasks
+    - [Aspect-Category-Opinion-Sentiment (ACOS) Quadruple Extraction](https://github.com/NUSTM/ACOS)
+- chat_sentiment_analysis/prepare_data/process_structured_sentiment_data.py
+  - supported tasks
+    - [Holder, Target, Opinion, Sentiment (HTOS) Quadruple Extraction](https://github.com/jerbarnes/semeval22_structured_sentiment)
 
 ## Step by Step
 - [filetune](chat_sentiment_analysis/llama/finetune.py)
