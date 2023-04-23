@@ -27,7 +27,7 @@ Solve all sentiment analysis tasks by chat
 - [inference_alpaca_lora](chat_sentiment_analysis/llama/inference_alpaca_lora.py)
   - sh run.sh chat_sentiment_analysis/llama/inference_alpaca_lora.py
 - [inference_gradio](chat_sentiment_analysis/llama/inference_gradio.py)
-    - nohup sh run.sh chat_sentiment_analysis/llama/inference_gradio.py > inference_gradio.log 2>&1 &
+    - nohup sh run.sh chat_sentiment_analysis/llama/inference_alpaca_lora_gradio.py > inference_alpaca_lora_gradio.log 2>&1 &
 
 ## Supported Tasks
 ### Aspect Term Extraction

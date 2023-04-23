@@ -115,7 +115,7 @@ def main(
         output = tokenizer.decode(s)
         return prompter.get_response(output)
 
-    gr.Interface(
+    demo = gr.Interface(
         fn=evaluate,
         inputs=[
             gr.components.Textbox(
@@ -146,9 +146,14 @@ def main(
                 label="Output",
             )
         ],
-        title="🦙🌲 Alpaca-LoRA",
-        description="Alpaca-LoRA is a 7B-parameter LLaMA model finetuned to follow instructions. It is trained on the [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca) dataset and makes use of the Huggingface LLaMA implementation. For more information, please visit [the project's website](https://github.com/tloen/alpaca-lora).",  # noqa: E501
-    ).launch(server_name=server_name, share=share_gradio)
+        title="Chat Sentiment Analysis",
+        description="Solve all sentiment analysis tasks in chat-style by finetuning LLaMA with lora.",  # noqa: E501
+    )
+
+    result = demo.queue().launch(server_name=server_name, share=share_gradio, prevent_thread_lock=True)
+    print('result:')
+    print(result[2], flush=True)
+    demo.block_thread()
     # Old testing code follows.
 
     """
